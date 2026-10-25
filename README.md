@@ -1,6 +1,6 @@
 # Gerenciador de Notas da Turma
 
-Programa de console em C para cadastrar alunos e acompanhar as notas de uma turma. Desenvolvido como projeto de estudo na disciplina Técnicas de Programação II (Sistemas de Informação, UFRA).
+Programa de console em C para cadastrar alunos e acompanhar as notas de uma turma. Desenvolvido como prática de estudo na disciplina Técnicas de Programação II (Sistemas de Informação, UFRA).
 
 ## O que o programa faz
 
