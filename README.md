@@ -53,8 +53,6 @@ No Windows, se estiver usando o PowerShell ou o Prompt de Comando, use `gerencia
 
 ## Autor
 
-Luís Amalcaburio - Sistemas de Informação - Ufra
+**Luís Amalcaburio**
 
-## Autor
-
-Luís
+Estudante de Sistemas de Informação, Universidade Federal Rural da Amazônia (UFRA)
