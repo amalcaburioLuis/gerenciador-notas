@@ -27,6 +27,8 @@ A turma comporta até 30 alunos.
 | `aluno.h` | Definição da `struct Aluno` e protótipos das funções |
 | `aluno.c` | Implementação das funções (cadastro, busca, listagem, ordenação e estatísticas) |
 
+A pasta `etapas/` guarda a evolução do projeto, uma versão por etapa.
+
 ## Como compilar
 
 É necessário ter o compilador GCC instalado. Na pasta do projeto, execute:
