@@ -23,5 +23,6 @@ void ordenarPorMedia(struct Aluno *turma, int qtd_alunos);
 float maiorMedia(struct Aluno *turma, int qtd_alunos);
 float menorMedia(struct Aluno *turma, int qtd_alunos);
 float mediaTurma(struct Aluno *turma, int qtd_alunos);
-
+void salvarTurma(struct Aluno turma[], int qtd_alunos);
+int carregarTurma(struct Aluno turma[]);
 #endif

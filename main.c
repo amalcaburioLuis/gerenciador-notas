@@ -6,7 +6,7 @@ int main(){
     setlocale(LC_ALL, "Portuguese");
 
     struct Aluno turma[MAX_ALUNOS];
-    int qtd_alunos = 0;
+    int qtd_alunos = carregarTurma(turma);
     int opcao = 0;
 
     do {
@@ -72,6 +72,8 @@ int main(){
             break;
         }
         case 0:
+            salvarTurma(turma, qtd_alunos);
+            printf("Dados salvos. Até logo!\n");
             printf("\nSaindo do programa...\n");
             break;
         default:

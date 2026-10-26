@@ -1,3 +1,4 @@
+#include <string.h>
 #include <stdio.h>
 #include "aluno.h"
 
@@ -150,4 +151,62 @@ void ordenarPorMedia(struct Aluno *turma, int qtd_alunos){
             }
         }
     }
+}
+
+void salvarTurma(struct Aluno turma[], int qtd_alunos) {
+    FILE *arq = fopen("dadosTurma.txt", "w"); // cria o arquivo de dados da turma.
+
+    if (arq == NULL){
+        printf("Erro ao salvar os dados.\n");
+        return;
+    }
+
+    // Percorre os alunos, do índice 0 até qtd_alunos - 1.
+    for (int i = 0; i < qtd_alunos; i++){
+        fprintf(arq, "%s; %d; %d; %.2f; %.2f; %.2f\n",
+            turma[i].nome,
+            turma[i].matricula,
+            turma[i].idade,
+            turma[i].notas[0],
+            turma[i].notas[1],
+            turma[i].notas[2]);
+    }
+
+    // Fecha o arquivo e garante que tudo foi gravado.
+    fclose(arq);
+}
+
+int carregarTurma(struct Aluno turma[]){
+    // Abre o arquivo para leitura
+    FILE *arq = fopen("dadosTurma.txt", "r");
+
+    
+    if (arq == NULL){
+        return 0;
+    }
+
+    int qtd = 0; // quantos alunos já foram lidos
+
+    // fscanf devolve quantos campos leu. 6 = linha completa.
+    while (qtd < MAX_ALUNOS &&
+        fscanf(arq, " %49[^;]; %d; %d; %f; %f; %f",
+            turma[qtd].nome,          // vetor: sem &
+            &turma[qtd].matricula,
+            &turma[qtd].idade,
+            &turma[qtd].notas[0],
+            &turma[qtd].notas[1],
+            &turma[qtd].notas[2]) == 6) {
+
+        // As funções recebem o endereço do aluno, então usamos &
+        turma[qtd].media = calcularMedia(&turma[qtd]);
+
+        // determinarSituacao não devolve valor: ela grava em turma[qtd].situacao.
+        // Precisa vir depois do cálculo da média, porque ela lê aluno->media.
+        determinarSituacao(&turma[qtd]);
+
+        qtd++; // próxima posição do vetor
+    }
+
+    fclose(arq);
+    return qtd; // total de alunos lidos
 }
