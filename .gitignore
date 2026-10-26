@@ -3,3 +3,4 @@ gerenciador.exe
 *.o
 output/
 dadosTurma.txt
+.vscode/
